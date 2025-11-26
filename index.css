@@ -315,10 +315,18 @@ footer a {
 }
 
 #activeIncidentReports {
-  background-color: #f8d7da;
-  border: 1px solid #f1aeb5;
   border-radius: 5px;
   padding: 8px;
+}
+
+.has-incident {
+  background-color: #f8d7da;
+  border: 1px solid #f1aeb5;
+}
+
+.no-incident {
+  background-color: #d1e7dd;
+  border: 1px solid #a3cfbb;
 }
 
 .navigationContainer {

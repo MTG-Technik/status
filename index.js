@@ -267,16 +267,24 @@ async function genIncidentReport() {
   const response = await fetch("data/incidents.json");
   if (response.ok) {
     const json = await response.json();
+    const activeElement = document.getElementById("activeIncidentReports");
+    const inactiveElement = document.getElementById("pastIncidentReports");
+    
     try {
-      const activeDom = DOMPurify.sanitize(
-        marked.parse(json.active ? json.active : "")
-      );
-      
+      if (json.active) {
+        const activeDom = DOMPurify.sanitize(marked.parse(json.active));
+        activeElement.innerHTML = activeDom;
+        activeElement.classList.add("has-incident");
+        activeElement.classList.remove("no-incident");
+      } else {
+        activeElement.innerHTML = "No active incidents";
+        activeElement.classList.add("no-incident");
+        activeElement.classList.remove("has-incident");
+      }
+
       const filteredInactive = filterIncidentsByDays(json.inactive, 30);
       const inactiveDom = DOMPurify.sanitize(marked.parse(filteredInactive));
-      
-      document.getElementById("activeIncidentReports").innerHTML = activeDom;
-      document.getElementById("pastIncidentReports").innerHTML = inactiveDom;
+      inactiveElement.innerHTML = inactiveDom;
 
       if (json.active) {
         setTimeout(() => {
