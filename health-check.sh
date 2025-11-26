@@ -35,7 +35,7 @@ do
   
   for i in 1 2 3 4; 
   do
-    cmd="curl --write-out '%{http_code}' --silent --output /dev/null $args"
+    cmd="curl --max-time 10 --user-agent "Mozilla/5.0" --write-out '%{http_code}' --silent --output /dev/null $args"
     response=$(eval "$cmd" | tee)
     if [ "$response" -eq 200 ] || [ "$response" -eq 202 ] || [ "$response" -eq 301 ] || [ "$response" -eq 307 ]; then
       result="success"
@@ -60,9 +60,8 @@ done
 
 if [[ $commit == true ]]
 then
-  # Let's make Vijaye the most productive person on GitHub.
-  git config --global user.name 'Vijaye Raji'
-  git config --global user.email 'vijaye@statsig.com'
+  git config --global user.name 'MTG-Technik'
+  git config --global user.email 'ermtg.technik@gmail.com'
   git add -A --force logs/
   git commit -am '[Automated] Update Health Check Logs'
   git push
