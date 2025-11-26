@@ -319,14 +319,21 @@ footer a {
   padding: 8px;
 }
 
+#pastIncidentReports {
+  border-radius: 5px;
+  padding: 8px;
+  background-color: #fafafa;
+  border: 1px solid #d0d0d0;
+}
+
 .has-incident {
-  background-color: #f8d7da;
-  border: 1px solid #f1aeb5;
+  background-color: #eba49a;
+  border: 1px solid #f44336;
 }
 
 .no-incident {
-  background-color: #d1e7dd;
-  border: 1px solid #a3cfbb;
+  background-color: #add8af;
+  border: 1px solid #4cae50;
 }
 
 .navigationContainer {
