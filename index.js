@@ -269,7 +269,7 @@ async function genIncidentReport() {
     const json = await response.json();
     try {
       const activeDom = DOMPurify.sanitize(
-        marked.parse(json.active ? json.active : "No active incidents")
+        marked.parse(json.active ? json.active : "")
       );
       
       const filteredInactive = filterIncidentsByDays(json.inactive, 30);
