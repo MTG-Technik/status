@@ -264,9 +264,7 @@ async function genAllReports() {
 }
 
 async function genIncidentReport() {
-  const response = await fetch(
-    "https://incidents.statsig.workers.dev/contents"
-  );
+  const response = await fetch("data/incidents.json");
   if (response.ok) {
     const json = await response.json();
     try {
@@ -312,9 +310,7 @@ function filterIncidentsByDays(incidentMarkdown, days) {
 }
 
 async function genIncidentHistory() {
-  const response = await fetch(
-    "https://incidents.statsig.workers.dev/contents"
-  );
+  const response = await fetch("data/incidents.json");
   if (response.ok) {
     const json = await response.json();
     try {
