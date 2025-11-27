@@ -291,6 +291,7 @@ async function genIncidentReport() {
         inactiveElement.innerHTML = inactiveDom;
         inactiveElement.classList.add("incidentReportsNeutral");
       } else {
+        inactiveElement.innerHTML = "";
         inactiveElement.classList.remove("incidentReportsNeutral");
       }
 
